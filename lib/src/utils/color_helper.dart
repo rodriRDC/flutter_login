@@ -55,9 +55,9 @@ const Map<ColorShade, int> shades = {
 /// Useful when you need a [MaterialColor] from a single [Color].
 MaterialColor getMaterialColor(Color color) {
   return Colors.primaries.firstWhere(
-    (c) => c.value() == color.toARGB32(),
+    (c) => c.value == color.value,
     orElse: () => MaterialColor(
-      color.toARGB32(),
+      color.value,
       <int, Color>{
         for (final entry in shades.entries) entry.value: color,
       },
